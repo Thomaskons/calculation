@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Trading Risk & Growth Flow — 2026 Edition</title>
+  
+  <!-- Latest Bootstrap 5.3 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"/>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"/>
+  
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card-bg: rgba(30, 41, 59, 0.55);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --accent: #60a5fa;
+      --success: #34d399;
+      --warning: #fbbf24;
+      --protected: #10b981;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 4rem 1rem 6rem;
+      background-attachment: fixed;
+    }
+    
+    .glass-card {
+      background: var(--card-bg);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      border: 1px solid var(--glass-border);
+      border-radius: 1.25rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+      overflow: hidden;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .glass-card:hover {
+      transform: translateY(-8px) scale(1.015);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    }
+    
+    .step-connector {
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(to bottom, var(--accent), transparent);
+      margin: 1.5rem auto;
+      border-radius: 2px;
+      position: relative;
+    }
+    
+    .step-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 14px;
+      height: 14px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 20px var(--accent);
+    }
+    
+    .big-value {
+      font-size: 3.2rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1;
+    }
+    
+    .section-title {
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(90deg, var(--accent), #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .protected-label {
+      color: var(--protected);
+      font-weight: 600;
+    }
+    
+    .target-label {
+      color: var(--warning);
+      font-weight: 600;
+    }
+    
+    .potential-label {
+      color: var(--success);
+      font-weight: 700;
+    }
+    
+    .progress {
+      height: 1.1rem;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      overflow: hidden;
+    }
+    
+    .progress-bar {
+      background: linear-gradient(90deg, var(--accent), #3b82f6);
+      box-shadow: 0 0 15px rgba(96,165,250,0.5);
+    }
+    
+    .icon-circle {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(96,165,250,0.12);
+      border: 1px solid rgba(96,165,250,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.25rem;
+    }
+    
+    @media (max-width: 992px) {
+      .step-connector { height: 60px; }
+      .big-value { font-size: 2.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="text-center mb-5 pb-4">
+      <h1 class="display-4 fw-bold section-title mb-2">Trading Capital Flow</h1>
+      <p class="lead text-muted fs-4">Protected • Disciplined • Scalable Growth</p>
+    </div>
+
+    <div class="row justify-content-center g-5">
+
+      <!-- Step 1 -->
+      <div class="col-lg-10">
+        <div class="glass-card p-4 p-md-5 text-center">
+          <div class="icon-circle mb-4">
+            <i class="bi bi-wallet2 text-primary"></i>
+          </div>
+          <h2 class="section-title fs-3 mb-4">1. Starting Capital</h2>
+          
+          <div class="d-flex flex-wrap justify-content-center gap-5 mb-4">
+            <div>
+              <p class="fs-5 text-muted mb-1">Current Balance</p>
+              <p class="big-value">€1,760</p>
+            </div>
+            <div class="align-self-center fs-3">+</div>
+            <div>
+              <p class="fs-5 text-muted mb-1">Incoming Transfer</p>
+              <p class="big-value">€10,000</p>
+            </div>
+          </div>
+          
+          <hr class="my-4 border-light opacity-25 w-75 mx-auto">
+          
+          <p class="fs-4 fw-semibold mb-2">Total Base Capital</p>
+          <p class="big-value text-primary">≈ €11,760</p>
+        </div>
+      </div>
+
+      <div class="col-2 d-none d-lg-flex justify-content-center">
+        <div class="step-connector"></div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-lg-10">
+        <div class="glass-card p-4 p-md-5">
+          <div class="icon-circle mb-4">
+            <i class="bi bi-shield-check text-info"></i>
+          </div>
+          <h2 class="section-title fs-3 mb-4 text-center">2. Risk-Controlled Tradable Portion</h2>
+          
+          <p class="fs-5 text-center mb-4">
+            Only <span class="fw-bold text-info">20%</span> is exposed at any time
+          </p>
+          
+          <div class="row align-items-center g-4">
+            <div class="col-md-5 text-center">
+              <p class="big-value text-info mb-1">≈ €2,350</p>
+              <p class="fs-4 fw-bold">Tradable per Trade</p>
+            </div>
+            <div class="col-md-7">
+              <div class="progress mb-3">
+                <div class="progress-bar" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <div class="d-flex justify-content-between fs-5">
+                <span class="protected-label">80% Protected ≈ €9,410</span>
+                <span>20% Tradable</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-2 d-none d-lg-flex justify-content-center">
+        <div class="step-connector" style="background: linear-gradient(to bottom, var(--warning), transparent);">
+          <div style="background: var(--warning);"></div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-lg-10">
+        <div class="glass-card p-4 p-md-5 text-center">
+          <div class="icon-circle mb-4">
+            <i class="bi bi-bullseye text-warning"></i>
+          </div>
+          <h2 class="section-title fs-3 mb-4">3. Realistic Target per Trade</h2>
+          
+          <p class="fs-5 mb-4">
+            Aim for <span class="fw-bold target-label">~2%</span> return on tradable amount
+          </p>
+          
+          <div class="p-4 rounded-4" style="background: rgba(251,191,36,0.08); border: 1px dashed var(--warning);">
+            <p class="big-value target-label mb-1">≈ €50</p>
+            <p class="fs-4 fw-bold">Average Profit Target / Trade</p>
+          </div>
+          
+          <p class="text-muted mt-4 fs-5">
+            Flexible — individual trades may vary around this benchmark
+          </p>
+        </div>
+      </div>
+
+      <div class="col-2 d-none d-lg-flex justify-content-center">
+        <div class="step-connector" style="background: linear-gradient(to bottom, var(--success), transparent);">
+          <div style="background: var(--success);"></div>
+        </div>
+      </div>
+
+      <!-- Step 4 – Final Potential -->
+      <div class="col-lg-10">
+        <div class="glass-card p-5 border border-success border-2 shadow-lg text-center">
+          <div class="icon-circle mb-4" style="background: rgba(52,211,153,0.15); border-color: rgba(52,211,153,0.3);">
+            <i class="bi bi-graph-up-arrow text-success"></i>
+          </div>
+          <h2 class="section-title fs-3 mb-5">4. Structured Growth Projection</h2>
+          
+          <div class="row g-5 justify-content-center">
+            <div class="col-md-5">
+              <p class="fs-4 fw-bold mb-3">Daily Potential</p>
+              <p class="big-value potential-label">≈ €200</p>
+              <p class="fs-5">(4 trades × €50)</p>
+            </div>
+            <div class="col-md-2 d-none d-md-flex align-items-center justify-content-center">
+              <i class="bi bi-arrow-right fs-1 text-success"></i>
+            </div>
+            <div class="col-md-5">
+              <p class="fs-4 fw-bold mb-3">Monthly Potential</p>
+              <p class="big-value potential-label">≈ €4,000</p>
+              <p class="fs-5">(20 trading days • gross)</p>
+            </div>
+          </div>
+          
+          <p class="mt-5 fs-5 fw-semibold text-success">
+            Capital protection first — consistent compounding second
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5 pt-4 text-muted small">
+      Visualized with modern glassmorphism • Discipline turns small edges into serious growth
+    </div>
+  </div>
+
+</body>
+</html>
